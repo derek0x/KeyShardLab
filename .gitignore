@@ -1,0 +1,8 @@
+# Personal configs
+AGENTS.md
+# Python caches
+__pycache__/
+*.pyc
+# Local logs and data dumps
+logs/
+data/*.log
