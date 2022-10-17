@@ -24,14 +24,14 @@ def generate_shards(secret: str, shard_count: int, salt: Optional[str] = None) -
     return shard_list
 
 
-def new_metadata(secret_label: str, shard_count: int) -> Dict[str, str]:
+def new_metadata(secret_label: str, shard_count: int) -> Dict[str, object]:
     """Create descriptive metadata for a shard bundle."""
     risk_levels = ["very low", "low", "moderate", "medium", "high"]
     index = min(shard_count, 4)
     return {
         "label": secret_label,
         "created_at": datetime.utcnow().isoformat(),
-        "shard_count": str(shard_count),
+        "shard_count": shard_count,
         "risk_level": risk_levels[index],
         "storage_hint": "Spread shards across at least two device types.",
     }

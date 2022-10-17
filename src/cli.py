@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from typing import Optional
 
+from .planner import build_plan
 from .shard import format_shard_pack
 
 
@@ -20,13 +21,14 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def save_pack(pack: dict, log_path: Path) -> None:
+def save_pack(pack: dict, plan: dict, log_path: Path) -> None:
     log_path.parent.mkdir(parents=True, exist_ok=True)
     entry = {
         "timestamp": pack["created_at"],
         "label": pack["label"],
         "shard_count": pack["shard_count"],
         "seal": pack["seal"],
+        "distribution": plan["distribution"],
     }
     with log_path.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(entry) + "\n")
@@ -35,12 +37,16 @@ def save_pack(pack: dict, log_path: Path) -> None:
 def main() -> None:
     args = parse_args()
     pack = format_shard_pack(args.secret, args.label, args.count, args.salt)
+    plan = build_plan(pack["shard_count"], pack["risk_level"], note=pack["note"])
     print("Shard bundle ready:\n")
     for shard in pack["shards"]:
         print(shard)
     print(f"Seal: {pack['seal']}")
     print(f"Risk advice: {pack['risk_level']}")
-    save_pack(pack, args.log)
+    print("Plan:")
+    print("  distribution: " + ", ".join(plan["distribution"]))
+    print("  note: " + plan["note"])
+    save_pack(pack, plan, args.log)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1 @@
+{"timestamp":"2022-10-12T23:18:46.000000","label":"Ledger Warmup","shard_count":4,"seal":"abc123","distribution":["hardware wallet","air-gapped laptop","safety deposit box"]}

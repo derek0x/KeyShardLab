@@ -34,4 +34,8 @@ Note: This project is intentionally small and personal; no build system or heavy
 python -m src.cli --secret "my mnemonic phrase" --label "Ledger Warmup" --count 4
 ```
 
-The command prints every shard, the seal hash, and a friendly risk reminder. Every run appends a summary line to `logs/shard_history.log`. That log can be reviewed manually later to track what got split when.
+The command prints every shard, the seal hash, and a friendly risk reminder. Additionally, it now prints the planner suggestions (distribution and note) and the log entry stores the recommended distribution for future journaling.
+
+## Storage planning notes
+
+Every bundle now pairs with a micro-plan from `src/planner.py`. The planner takes the total shard count and risk level and returns a short list of storage tiers plus a personal note reminder. That distribution gets captured in the log entry so I can review it later without running the CLI again.
