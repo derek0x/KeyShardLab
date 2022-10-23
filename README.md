@@ -39,3 +39,11 @@ The command prints every shard, the seal hash, and a friendly risk reminder. Add
 ## Storage planning notes
 
 Every bundle now pairs with a micro-plan from `src/planner.py`. The planner takes the total shard count and risk level and returns a short list of storage tiers plus a personal note reminder. That distribution gets captured in the log entry so I can review it later without running the CLI again.
+
+## Reading the log
+
+There's a tiny helper in `src/log_reader.py` that replays the last few entries from `logs/shard_history.log`. Run it like `python -m src.log_reader --limit 5` to see what labels were generated most recently and where those shards were meant to live. It keeps the solo-lab feel by staying offline and textual.
+
+## Running the tests
+
+Simple assertions live under `tests/`; nothing fancy, just `python -m pytest` or `python -m unittest discover` whenever I feel like a quick check before the next evening session.
