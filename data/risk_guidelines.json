@@ -1,0 +1,22 @@
+{
+  "very low": {
+    "note": "Keep this on a daily driver device but back it up to another vault once a month.",
+    "preferred": ["personal vault app", "hardware wallet"]
+  },
+  "low": {
+    "note": "Pair a local hot wallet with a hardware wallet; refresh the backup quarterly.",
+    "preferred": ["hardware wallet", "personal vault app", "air-gapped laptop"]
+  },
+  "moderate": {
+    "note": "Spread shards across a hardware wallet, a trusted friend, and an air-gapped laptop.",
+    "preferred": ["hardware wallet", "air-gapped laptop", "trusted friend"]
+  },
+  "medium": {
+    "note": "Use a hardware wallet plus a safety deposit box; avoid keeping copies on the same network.",
+    "preferred": ["hardware wallet", "safety deposit box", "trusted friend"]
+  },
+  "high": {
+    "note": "Only keep one shard on any single device; treat every copy as a highly sensitive key.",
+    "preferred": ["safety deposit box", "air-gapped laptop", "trusted friend"]
+  }
+}

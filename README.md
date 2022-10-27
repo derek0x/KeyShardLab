@@ -47,3 +47,7 @@ There's a tiny helper in `src/log_reader.py` that replays the last few entries f
 ## Running the tests
 
 Simple assertions live under `tests/`; nothing fancy, just `python -m pytest` or `python -m unittest discover` whenever I feel like a quick check before the next evening session.
+
+## Risk guidance data
+
+Risk levels now draw from `data/risk_guidelines.json`, so every plan includes a small narrative note plus a preferred distribution list. That file lets me keep tweaking the solo workflow without touching the code, and it explains why the CLI is voicing the same teaching line every time.

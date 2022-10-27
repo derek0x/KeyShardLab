@@ -7,8 +7,13 @@ def test_recommend_distribution_length():
 
 
 def test_build_plan_fields():
-    plan = build_plan(4, "moderate", note="Keep in mind")
+    plan = build_plan(4, "moderate")
     assert plan["shard_count"] == 4
     assert plan["risk_level"] == "moderate"
-    assert plan["note"] == "Keep in mind"
     assert isinstance(plan["distribution"], list)
+    assert "guideline" in plan
+
+
+def test_guideline_note_applies():
+    plan = build_plan(2, "very low")
+    assert "back" in plan["note"]
