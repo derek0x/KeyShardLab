@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2022-11-02 Validator checkpoint
+- Added `src/validator.py` to flag incomplete log entries before they ship.
+- Documented how to run the quick validation check in the README.
 ## 2022-10-27 Risk guidance refresh
 - Added `data/risk_guidelines.json` so the planner can stay in sync with notes I tweak manually.
 - Updated planner logic to read that file and surface the same note in every log entry.

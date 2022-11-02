@@ -44,6 +44,10 @@ Every bundle now pairs with a micro-plan from `src/planner.py`. The planner take
 
 There's a tiny helper in `src/log_reader.py` that replays the last few entries from `logs/shard_history.log`. Run it like `python -m src.log_reader --limit 5` to see what labels were generated most recently and where those shards were meant to live. It keeps the solo-lab feel by staying offline and textual.
 
+## Validating the log
+
+`src/validator.py` does a quick pass over that same log file and reports any missing timestamp/label/seal shards. I run `python -m src.validator --limit 8` before every commit to make sure the history file still looks human and complete.
+
 ## Running the tests
 
 Simple assertions live under `tests/`; nothing fancy, just `python -m pytest` or `python -m unittest discover` whenever I feel like a quick check before the next evening session.
