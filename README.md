@@ -48,6 +48,10 @@ There's a tiny helper in `src/log_reader.py` that replays the last few entries f
 
 `src/validator.py` does a quick pass over that same log file and reports any missing timestamp/label/seal shards. I run `python -m src.validator --limit 8` before every commit to make sure the history file still looks human and complete.
 
+## Jotting lab notes
+
+The project keeps a small Markdown log under `data/lab_notes.md` and `src/note_keeper.py` can append entries for me. Running `python -m src.note_keeper "Experimenting with planners tonight"` stamps the current time and saves the entry so I can remember what I was testing in each session.
+
 ## Running the tests
 
 Simple assertions live under `tests/`; nothing fancy, just `python -m pytest` or `python -m unittest discover` whenever I feel like a quick check before the next evening session.
