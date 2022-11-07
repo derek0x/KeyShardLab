@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2022-11-07 Digest snapshots
+- Added `src/digest.py` to turn the log into a readable daily summary.
+- Checked in `data/digest_summary.md` as an example digest output.
 ## 2022-11-05 Lab notes habit
 - Added `src/note_keeper.py` to capture evening notes plus a sample entry in `data/lab_notes.md`.
 - Documented the journal command for future reference.

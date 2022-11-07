@@ -48,6 +48,10 @@ There's a tiny helper in `src/log_reader.py` that replays the last few entries f
 
 `src/validator.py` does a quick pass over that same log file and reports any missing timestamp/label/seal shards. I run `python -m src.validator --limit 8` before every commit to make sure the history file still looks human and complete.
 
+## Digest snapshots
+
+`src/digest.py` reads the log again, builds a few bullet points, and can write them to `data/digest_summary.md`. I usually run `python -m src.digest --limit 4 --out data/digest_summary.md` after a session to keep a readable short-form record of the most recent vaults.
+
 ## Jotting lab notes
 
 The project keeps a small Markdown log under `data/lab_notes.md` and `src/note_keeper.py` can append entries for me. Running `python -m src.note_keeper "Experimenting with planners tonight"` stamps the current time and saves the entry so I can remember what I was testing in each session.
