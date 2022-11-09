@@ -52,6 +52,10 @@ There's a tiny helper in `src/log_reader.py` that replays the last few entries f
 
 `src/digest.py` reads the log again, builds a few bullet points, and can write them to `data/digest_summary.md`. I usually run `python -m src.digest --limit 4 --out data/digest_summary.md` after a session to keep a readable short-form record of the most recent vaults.
 
+## Tracking coverage
+
+`src/backups.py` keeps score of where shards end up most often and can print the top locations per log file. The helper mirrors the sample output under `data/backup_summary.md`, and I run `python -m src.backups --limit 4` to keep the coverage list handy for planning distribution changes.
+
 ## Jotting lab notes
 
 The project keeps a small Markdown log under `data/lab_notes.md` and `src/note_keeper.py` can append entries for me. Running `python -m src.note_keeper "Experimenting with planners tonight"` stamps the current time and saves the entry so I can remember what I was testing in each session.

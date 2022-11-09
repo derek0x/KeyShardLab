@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2022-11-09 Distribution coverage
+- Added `src/backups.py` to count how often each storage tier appears in the bundle log.
+- Captured a running summary in `data/backup_summary.md` for easy reference.
 ## 2022-11-07 Digest snapshots
 - Added `src/digest.py` to turn the log into a readable daily summary.
 - Checked in `data/digest_summary.md` as an example digest output.
