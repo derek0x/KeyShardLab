@@ -36,6 +36,10 @@ python -m src.cli --secret "my mnemonic phrase" --label "Ledger Warmup" --count 
 
 The command prints every shard, the seal hash, and a friendly risk reminder. Additionally, it now prints the planner suggestions (distribution and note) and the log entry stores the recommended distribution for future journaling.
 
+## Seed templates
+
+`src/template_manager.py` loads `data/template_secrets.json` and can spin up a quick secret label when I don't want to retype the same mnemonic every night. Running `python -m src.template_manager` prints a random template for me to use as a starting point.
+
 ## Storage planning notes
 
 Every bundle now pairs with a micro-plan from `src/planner.py`. The planner takes the total shard count and risk level and returns a short list of storage tiers plus a personal note reminder. That distribution gets captured in the log entry so I can review it later without running the CLI again.
